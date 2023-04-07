@@ -52,7 +52,7 @@ const port = process.env.PORT || 3500
 
 // error handler
 const errorhandler = require('./middleware/errorhandler')
-const notfound = require('./middleware/notfound')
+// const notfound = require('./middleware/notfound')
 
 
 // routes
@@ -74,12 +74,16 @@ app.use(express.json())
 app.use(helmet());
 app.use(xss());
 
+app.get('/', (req, res) => {
+    res.send('<h1>Jobster API</h1><a href="/api-docs">Documentation</a>');
+  });
+
 
 app.use('/api/v1/auth' , userroute)
 app.use('/api/v1/jobs' ,  authmiddleware ,  jobroute)
 
 app.use(errorhandler)
-app.use(notfound)
+// app.use(notfound)
 const start = async() =>{
     try {
         await connectdb(process.env.MONGO_URI)
