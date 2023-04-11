@@ -1,42 +1,4 @@
-// require('express-async-errors')
-// require('dotenv').config()
-// const express = require('express')
-// const connectdb = require('./db/connects')
-// const app = express()
 
-// const port = 5500
-
-// const userroute = require('./routes/user')
-// const jobroute = require('./routes/job')
-
-// const authmiddleware = require('./middleware/authmiddleware')
-
-// const errorhandler = require('./middleware/errorhandler')
-
-// const notfound = require('./middleware/notfound')
-
-
-// app.use(express.json())
-
-
-// app.use('/api/v1/auth' , userroute )
-// app.use('/api/v1/jobs'  , authmiddleware , jobroute)
-
-// app.use(errorhandler)
-// app.use(notfound)
-// const start = async()=>{
-//     try {
-//         await connectdb(process.env.MONGO_URI)
-//         app.listen(port , ()=>{
-//             console.log(`server running on port ${port}`)
-//         })
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
-// start()
 
 
 require('dotenv').config()
@@ -52,7 +14,7 @@ const port = process.env.PORT || 3500
 
 // error handler
 const errorhandler = require('./middleware/errorhandler')
-// const notfound = require('./middleware/notfound')
+const notfound = require('./middleware/notfound')
 
 
 // routes
@@ -83,7 +45,7 @@ app.use('/api/v1/auth' , userroute)
 app.use('/api/v1/jobs' ,  authmiddleware ,  jobroute)
 
 app.use(errorhandler)
-// app.use(notfound)
+app.use(notfound)
 const start = async() =>{
     try {
         await connectdb(process.env.MONGO_URI)
@@ -97,22 +59,6 @@ const start = async() =>{
 
 
 start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
