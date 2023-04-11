@@ -1,33 +1,4 @@
-// const {StatusCodes} = require('http-status-codes')
 
-
-// const errorhandler = (err , req , res , next)=>{
-//     customerror = {
-//         statusCodes: err.statusCodes || StatusCodes.INTERNAL_SERVER_ERROR,
-//         msg:err.message || 'something went wrong , Try again later'
-//     }
-
-//     if(err.code && err.code === 11000){
-//         customerror.msg = 'Duplicate value entered for email field , Try another value'
-//         customerror.statusCodes = 400
-//     }
-
-//     if(err.name === 'ValidationError'){
-//         customerror.msg = Object.values(err.errors).map((item)=>item.message).join(',')
-//         customerror.statusCodes = 400
-//     }
-
-//     if(err.name === 'CastError'){
-//         customerror.msg = `There is no item with the id:${err.value}`
-//         customerror.statusCodes = 404
-//     }
-
-//     res.status(customerror.statusCodes).json({msg:customerror.msg})
-
-
-// }
-
-// module.exports = errorhandler
 
 const {StatusCodes} = require('http-status-codes')
 

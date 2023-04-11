@@ -61,7 +61,7 @@ const jobschema = new mongoose.Schema({
         enum:['full-time' , 'part-time' , 'intership' , 'remote'],
         default:'full-time'
     }
-})
+},{timestamps:true})
 
 module.exports = mongoose.model('job2' , jobschema)
 
